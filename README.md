@@ -115,26 +115,43 @@ Analisis data eksploratif dilakukan untuk menjawab pertanyaan yang terdaftar dan
 #### Kode
 Queries yang dogunakan  [SQL_queries.sql] (https://github.com/audreynaila/WalmartSales_Analysis/blob/f068291cc3c05933e02d0aa668e7dd603ce03326/SQL_query.sql)
 
--- Membuat database
-CREATE DATABASE IF NOT EXISTS walmartSales;
-
--- Membuat tabel
-CREATE TABLE IF NOT EXISTS sales(
-    invoice_id VARCHAR(30) NOT NULL PRIMARY KEY,
-    branch VARCHAR(5) NOT NULL,
-    city VARCHAR(30) NOT NULL,
-    customer_type VARCHAR(30) NOT NULL,
-    gender VARCHAR(30) NOT NULL,
-    product_line VARCHAR(100) NOT NULL,
-    unit_price DECIMAL(10,2) NOT NULL,
-    quantity INT NOT NULL,
-    tax_pct FLOAT(6,4) NOT NULL,
-    total DECIMAL(12, 4) NOT NULL,
-    date DATETIME NOT NULL,
-    time TIME NOT NULL,
-    payment VARCHAR(15) NOT NULL,
-    cogs DECIMAL(10,2) NOT NULL,
-    gross_margin_pct FLOAT(11,9),
-    gross_income DECIMAL(12, 4),
-    rating FLOAT(2, 1)
+```sql
+-- Membuat tabel jika belum ada
+CREATE TABLE IF NOT EXISTS `sqlqueries-427408.ordersMarkets.orders` (
+    `Order Id` STRING,
+    `Order Date` DATE,
+    `Ship Mode` STRING,
+    Segment STRING,
+    Country STRING,
+    City STRING,
+    State STRING,
+    `Postal Code` INT64,
+    Region STRING,
+    Category STRING,
+    `Sub Category` STRING,
+    `Product Id` STRING,
+    `cost price` FLOAT64,
+    `List Price` FLOAT64,
+    Quantity INT64,
+    `Discount Percent` FLOAT64
 );
+
+-- Membersihkan data
+SELECT *
+FROM `sqlqueries-427408.ordersMarkets.orders`;
+
+-- Menambahkan kolom 'time_of_day'
+ALTER TABLE `sqlqueries-427408.ordersMarkets.orders` 
+ADD COLUMN time_of_day STRING;
+
+-- Memperbarui data untuk mengisi kolom 'time_of_day'
+UPDATE `sqlqueries-427408.ordersMarkets.orders`
+SET time_of_day = (
+	CASE
+		WHEN FORMAT_TIMESTAMP('%H:%M:%S', PARSE_TIMESTAMP('%Y-%m-%d %H:%M:%S', `Order Date`)) BETWEEN '00:00:00' AND '12:00:00' THEN 'Morning'
+        WHEN FORMAT_TIMESTAMP('%H:%M:%S', PARSE_TIMESTAMP('%Y-%m-%d %H:%M:%S', `Order Date`)) BETWEEN '12:01:00' AND '16:00:00' THEN 'Afternoon'
+        ELSE 'Evening'
+    END
+);
+```
+
