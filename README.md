@@ -113,7 +113,8 @@ Analisis data eksploratif dilakukan untuk menjawab pertanyaan yang terdaftar dan
 10. Hari mana dalam seminggu yang memiliki rating rata-rata terbaik per cabang?
 
 #### Kode
-Queries yang dogunakan  [SQL_queries.sql] (https://github.com/audreynaila/WalmartSales_Analysis/blob/f068291cc3c05933e02d0aa668e7dd603ce03326/SQL_query.sql)
+Queries yang digunakan [SQL_Queries.sql](https://github.com/audreynaila/WalmartSales_Analysis/blob/f068291cc3c05933e02d0aa668e7dd603ce03326/SQL_query.sql).
+
 
 ```sql
 -- Membuat tabel jika belum ada
