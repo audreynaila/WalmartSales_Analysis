@@ -4,7 +4,7 @@
 
 Proyek ini bertujuan untuk mengeksplorasi data penjualan Walmart guna memahami cabang dan produk yang berkinerja terbaik, tren penjualan berbagai produk, serta perilaku pelanggan. Tujuannya adalah untuk mempelajari bagaimana strategi penjualan dapat ditingkatkan dan dioptimalkan. Dataset diperoleh dari [Kompetisi Walmart Sales Forecasting di Kaggle](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting).
 
-"Dalam kompetisi ini, pencari kerja diberikan data penjualan historis dari 45 toko Walmart yang berlokasi di berbagai daerah. Setiap toko memiliki banyak departemen, dan peserta harus memproyeksikan penjualan untuk setiap departemen di setiap toko. Untuk menambah tantangan, acara markdown liburan terpilih disertakan dalam dataset. Markdown ini diketahui mempengaruhi penjualan, tetapi sulit untuk memprediksi departemen mana yang terpengaruh dan sejauh mana dampaknya." [sumber](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting)
+"Dalam kompetisi ini, pencari kerja diberikan data penjualan historis dari 45 toko Walmart yang berlokasi di berbagai daerah. Setiap toko memiliki banyak departemen, dan peserta harus memproyeksikan penjualan untuk setiap departemen di setiap toko. Untuk menambah tantangan, acara markdown liburan terpilih disertakan dalam dataset. Markdown ini diketahui mempengaruhi penjualan, tetapi sulit untuk memprediksi departemen mana yang terpengaruh dan sejauh mana dampaknya."
 
 ## Tujuan Proyek
 
@@ -112,32 +112,4 @@ Analisis data eksploratif dilakukan untuk menjawab pertanyaan yang terdaftar dan
 9. Hari mana dalam seminggu yang memiliki rating rata-rata terbaik?
 10. Hari mana dalam seminggu yang memiliki rating rata-rata terbaik per cabang?
 
-#### Perhitungan Pendapatan dan Profit
 
-\[ COGS = \text{unit_price} \times \text{quantity} \]
-
-\[ VAT = 5\% \times COGS \]
-
-\[ \text{total(gross_sales)} = VAT + COGS \]
-
-\[ \text{grossProfit(grossIncome)} = \text{total(gross_sales)} - COGS \]
-
-Gross Margin adalah gross profit yang dinyatakan dalam persentase dari total revenue
-
-\[ \text{Gross Margin} = \frac{\text{gross income}}{\text{total revenue}} \]
-
-Contoh dengan baris pertama di DB kita:
-
-Data yang diberikan:
-
-\[ \text{Unite Price} = 45.79 \]
-\[ \text{Quantity} = 7 \]
-\[ COGS = 45.79 \times 7 = 320.53 \]
-
-\[ \text{VAT} = 5\% \times COGS = 5\% \times 320.53 = 16.0265 \]
-
-\[ \text{total} = VAT + COGS = 16.0265 + 320.53 = 336.5565 \]
-
-\[ \text{Gross Margin Percentage} = \frac{\text{gross income}}{\text{total revenue}} = \frac{16.0265}{336.5565} = 0.047619 \approx 4.7619\% \]
-
----
